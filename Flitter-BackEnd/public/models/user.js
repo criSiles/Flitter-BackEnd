@@ -1,31 +1,20 @@
 "use strict";
 
+const fleet = require("./fleet.js");
+
 const mongoose = require("mongoose");
 
-const fleet = mongoose.Schema ({
-    id: Number,
-    avatar: String,
-    name: String,
-    text: String,
-    kudos: Number,
-    img: String,
-});
-
-
 // Creating the User model
-const user = mongoose.Schema ({
-    id: Number,
-    email: String,
-    password: String,
-    name: String,
-    avatar: String,
-    fleets: [fleet],
-    following: [user],
+const userSchema = mongoose.Schema({
+  id: Number,
+  email: String,
+  password: String,
+  name: String,
+  avatar: String,
+  following: [{ id: Number }],
 });
 
 const User = mongoose.model("User", userSchema);
-const Fleet = mongoose.model("Fleet", fleetSchema);
 
 // Export the User model
 module.exports = User;
-module.exports = Fleet;

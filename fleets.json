@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "id_user": 1,
+    "text": "This is a dummy text",
+    "kudos": 0,
+    "img": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+  },
+  {
+    "id": 2,
+    "id_user": 1,
+    "text": "This is a dummy text",
+    "kudos": 0,
+    "img": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+  },
+  {
+    "id": 3,
+    "id_user": 1,
+    "text": "This is a dummy text",
+    "kudos": 0,
+    "img": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+  },
+  {
+    "id": 4,
+    "id_user": 2,
+    "text": "This is a dummy text",
+    "kudos": 0,
+    "img": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+  },
+  {
+    "id": 5,
+    "id_user": 2,
+    "text": "This is a dummy text",
+    "kudos": 0,
+    "img": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+  },
+  {
+    "id": 6,
+    "id_user": 2,
+    "text": "This is a dummy text",
+    "kudos": 0,
+    "img": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+  },
+  {
+    "id": 7,
+    "id_user": 3,
+    "text": "This is a dummy text",
+    "kudos": 0,
+    "img": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+  },
+  {
+    "id": 8,
+    "id_user": 3,
+    "text": "This is a dummy text",
+    "kudos": 0,
+    "img": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+  },
+  {
+    "id": 9,
+    "id_user": 3,
+    "text": "This is a dummy text",
+    "kudos": 0,
+    "img": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+  }
+]
