@@ -24,8 +24,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Configurar swagger
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./api-flitter/apidoc.json');
+
+// Configurar rutas
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/apidoc', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use('/api/fleets', fleetsRouter);
 app.use(express.static("public"))
 
