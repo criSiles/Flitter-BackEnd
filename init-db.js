@@ -3,10 +3,10 @@
 const readline = require("readline");
 
 // Upload the model
-const User = require("./models/User");
+const Fleet = require("./models/Fleet");
 
 async function main() {
-  // Ask the user if is sure
+  // Ask the fleets if is sure
   const carryOn = await askingYN(
     "Are you sure to want to delete the database? [yes/no] \n"
   );
@@ -28,22 +28,22 @@ async function main() {
 main().catch((err) => console.log("There was an error", err));
 
 async function initUSer() {
-  // Delete all the documents of the previous user collection
-  const result = await User.deleteMany();
-  console.log(`Deleted ${result.deletedCount} user.`);
+  // Delete all the documents of the previous fleets collection
+  const result = await Fleet.deleteMany();
+  console.log(`Deleted ${result.deletedCount} fleets.`);
 
-  // Open a JSON file with the user
-  const user = require("./user.json");
+  // Open a JSON file with the fleets
+  const fleets = require("./fleets.json");
 
-  // Create initial user
-  const inserted = await User.insertMany(user);
+  // Create initial fleets
+  const inserted = await Fleet.insertMany(fleets);
 
-  console.log(`Created ${inserted.length} user.`);
+  console.log(`Created ${inserted.length} fleets.`);
 }
 
 function askingYN(text) {
   return new Promise((resolve) => {
-    const interfaceYN = readline.createInterfaceYN({
+    const interfaceYN = readline.createInterface({
       input: process.stdin,
       output: process.stdout,
     });
