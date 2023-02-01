@@ -1,3 +1,5 @@
+// Aplicacion nodejs principal para el servidor
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -19,8 +21,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Configurar swagger
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./api-flitter/apidoc.json');
+
+// Configurar rutas
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/apidoc', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

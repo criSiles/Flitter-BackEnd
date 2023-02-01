@@ -6,4 +6,10 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
+/* POST create user. */
+router.post('/', function(req, res, next) {
+  res.send('respond with a resource');
+});
+
+
 module.exports = router;
