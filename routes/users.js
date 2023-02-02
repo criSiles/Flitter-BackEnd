@@ -17,5 +17,14 @@ router.post('/', function(req, res, next) {
   userController.userCreate(req, res, next);
 });
 
+/* PUT update user by id. */
+router.put('/:id', function(req, res, next) {
+  userController.userUpdateById(req, res, next);
+});
+
+/* DELETE delete user by id. */
+router.delete('/:id', function(req, res, next) {
+  userController.userDeleteById(req, res, next);
+});
 
 module.exports = router;
