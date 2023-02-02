@@ -4,7 +4,7 @@
     "email": "mail1@mail.com",
     "password": "password1",
     "name": "name1",
-    "avatar": "avatar1",
+    "avatar": "https://thispersondoesnotexist.com/",
     "following": [
       {
         "id": 2
@@ -19,7 +19,7 @@
     "email": "mail2@mail.com",
     "password": "password2",
     "name": "name2",
-    "avatar": "avatar2",
+    "avatar": "https://thispersondoesnotexist.com/",
     "following": [
       {
         "id": 1
@@ -34,7 +34,7 @@
     "email": "mail3@mail.com",
     "password": "password3",
     "name": "name3",
-    "avatar": "avatar3",
+    "avatar": "https://thispersondoesnotexist.com/",
     "following": [
       {
         "id": 1
