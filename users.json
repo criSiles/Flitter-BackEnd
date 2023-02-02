@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "email": "mail1@mail.com",
+    "password": "password1",
+    "name": "name1",
+    "avatar": "avatar1",
+    "following": [
+      {
+        "id": 2
+      },
+      {
+        "id": 3
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "email": "mail2@mail.com",
+    "password": "password2",
+    "name": "name2",
+    "avatar": "avatar2",
+    "following": [
+      {
+        "id": 1
+      },
+      {
+        "id": 3
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "email": "mail3@mail.com",
+    "password": "password3",
+    "name": "name3",
+    "avatar": "avatar3",
+    "following": [
+      {
+        "id": 1
+      },
+      {
+        "id": 2
+      }
+    ]
+  }
+]
