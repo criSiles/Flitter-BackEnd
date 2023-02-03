@@ -1,8 +1,4 @@
-"use strict";
 const mongoose = require("mongoose");
-
-const fleet = require("./Fleet.js");
-
 
 // Creating the User model
 const userSchema = mongoose.Schema({
