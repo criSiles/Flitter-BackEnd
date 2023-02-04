@@ -10,10 +10,11 @@ router.get("/", async (req, res, next) => {
   try {
     // filter
     const id = req.query.id;
-    const id_user = req.query.id_user;
+    const userName = req.query.userName
     const text = req.query.text;
     const kudos = req.query.kudos;
     const img = req.query.img;
+    const createdAt = req.query.createdAt;
 
     // pagination
     const skip = req.query.skip;
@@ -29,8 +30,8 @@ router.get("/", async (req, res, next) => {
       filter.id = id;
     }
 
-    if (id_user) {
-      filter.id_user = id_user;
+    if (userName) {
+      filter.userName = userName;
     }
 
     if (text) {
@@ -45,6 +46,10 @@ router.get("/", async (req, res, next) => {
       filter.img = img;
     }
 
+    if (createdAt) {
+      filter.createdAt = createdAt;
+    }
+
     const fleets = await Fleet.list(filter, skip, limit, fields, sort);
     res.json(fleets);
   } catch (err) {
@@ -53,24 +58,25 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.post('/', async (req, res, next)=>{
+router.post("/", async (req, res, next) => {
   const fleetPost = new Fleet({
-    id_user: req.body.id_user,
+    userName: req.body.userName,
     text: req.body.text,
     img: req.body.img,
-	});
+  });
 
-	await Fleet.create(fleetPost)
-	res.send(fleetPost)
+  await Fleet.create(fleetPost);
+  res.send(fleetPost);
 });
 
-router.delete('/:id', async (req, res, next) => {
-  await Fleet.deleteOne({_id: req.params.id}).then(() => {
+router.delete("/:id", async (req, res, next) => {
+  await Fleet.deleteOne({ _id: req.params.id })
+    .then(() => {
       res.send();
-    }).catch(()=>{
-      res.status(404).send()
     })
+    .catch(() => {
+      res.status(404).send();
+    });
 });
-  
 
 module.exports = router;
