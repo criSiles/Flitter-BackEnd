@@ -1,65 +1,68 @@
 [
   {
-    "id": 1,
-    "id_user": 1,
+    "userName": "RoRo",
     "text": "This is a dummy text",
     "kudos": 0,
-    "img": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+    "img": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
+    "createdAt": 1675595886
   },
   {
-    "id": 2,
-    "id_user": 1,
+    "userName": "RoRo",
     "text": "This is a dummy text",
-    "kudos": 0,
-    "img": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+    "kudos": 2,
+    "img": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
+    "createdAt": 1675595887
   },
   {
-    "id": 3,
-    "id_user": 1,
+    "userName": "RoRo",
     "text": "This is a dummy text",
-    "kudos": 0,
-    "img": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+    "kudos": 4,
+    "img": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
+    "createdAt": 1675595888
   },
   {
-    "id": 4,
-    "id_user": 2,
+
+    "userName":"Gigi",
     "text": "This is a dummy text",
-    "kudos": 0,
-    "img": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+    "kudos": 5,
+    "img": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
+    "createdAt": 1675595889
   },
   {
-    "id": 5,
-    "id_user": 2,
+
+    "userName": "Gigi",
     "text": "This is a dummy text",
-    "kudos": 0,
-    "img": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+    "kudos": 6,
+    "img": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
+    "createdAt": 1675595890
   },
   {
-    "id": 6,
-    "id_user": 2,
+
+    "userName": "Gigi",
     "text": "This is a dummy text",
-    "kudos": 0,
-    "img": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+    "kudos": 8,
+    "img": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
+    "createdAt": 1675595891
   },
   {
-    "id": 7,
-    "id_user": 3,
+    "userName": "Lu",
     "text": "This is a dummy text",
-    "kudos": 0,
-    "img": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+    "kudos": 10,
+    "img": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
+    "createdAt": 1675595892
   },
   {
-    "id": 8,
-    "id_user": 3,
+    "userName": "Lu",
     "text": "This is a dummy text",
-    "kudos": 0,
-    "img": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+    "kudos": 20,
+    "img": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
+    "createdAt": 1675595893
   },
   {
-    "id": 9,
-    "id_user": 3,
+    "userName": "Lu",
     "text": "This is a dummy text",
-    "kudos": 0,
-    "img": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+    "kudos": 50,
+    "img": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
+    "createdAt": 1675595894
   }
 ]

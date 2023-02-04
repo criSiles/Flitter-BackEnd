@@ -3,11 +3,11 @@
 const mongoose = require("mongoose");
 
 const fleetSchema = mongoose.Schema ({
-    id: Number,
-    id_user: Number,
+    userName: String,
     text: String,
     kudos: Number,
     img: String,
+    createdAt: Number,
 });
 
 fleetSchema.statics.list = function (
@@ -27,5 +27,5 @@ fleetSchema.statics.list = function (
 
 const Fleet = mongoose.model("Fleet", fleetSchema);
 
-// Export the User model
+// Export the Fleet model
 module.exports = Fleet;
