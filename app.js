@@ -38,6 +38,15 @@ app.use('/api/fleets', fleetsRouter);
 app.use(express.static("public"))
 
 
+//CORS settings
+app.get('/products/:id', function (req, res, next) {
+  res.json({msg: 'This is CORS-enabled for all origins!'})
+})
+
+app.listen(80, function () {
+  console.log('CORS-enabled web server listening on port 80')
+})
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
