@@ -27,4 +27,11 @@ router.delete('/:id', function(req, res, next) {
   userController.userDeleteById(req, res, next);
 });
 
+/* POST login user with body. */
+router.post('/login', function(req, res, next) {
+  userController.userLogin(req, res, next);
+});
+
+
+
 module.exports = router;

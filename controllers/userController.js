@@ -102,3 +102,26 @@ exports.userDeleteById = async (req, res) => {
         return res.status(500).json({ error: "Error deleting user" });
       }
 }
+
+// POST login user with body
+exports.userLogin = async (req, res) => {
+    // Get the data from the request
+    const { email, password } = req.body;
+    // Check if the user exists
+    User.findOne({ email: email }, async (err, user) => {
+    
+    if (!user) {
+        return res.status(404).json({ error: "User not found" });
+    }
+    // Check if the password is correct
+    console.log(user);
+    const validPassword = await bcrypt.compare(password, user.password);
+    if (!validPassword) {
+        return res.status(401).json({ error: "Invalid password" });
+    }
+    // Create and assign a token
+    //const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET);
+    //res.header('auth-token', token).json({ token });
+    return res.status(200).json({ message: "Logged in!" });
+});
+};
