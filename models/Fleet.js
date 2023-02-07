@@ -5,7 +5,12 @@ const mongoose = require("mongoose");
 const fleetSchema = mongoose.Schema ({
     userName: String,
     text: String,
-    kudos: Number,
+    kudos: [
+      {
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'User'
+      }
+    ],
     img: String,
     createdAt: Number,
 });

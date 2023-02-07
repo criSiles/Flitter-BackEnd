@@ -30,20 +30,20 @@ main().catch((err) => console.log("There was an error", err));
 
 async function initData() {
   // Delete all the documents of the previous collection
-  const result = await Fleet.deleteMany();
+  // const result = await Fleet.deleteMany();
   const result2 = await User.deleteMany();
-  console.log(`Deleted ${result.deletedCount} fleets.`);
+  // console.log(`Deleted ${result.deletedCount} fleets.`);
   console.log(`Deleted ${result2.deletedCount} users.`);
 
   // Open a JSON file with the initial data
-  const fleets = require("./fleets.json");
+  // const fleets = require("./fleets.json");
   const users = require("./users.json");
 
   // Create initial data
-  const inserted = await Fleet.insertMany(fleets);
+  // const inserted = await Fleet.insertMany(fleets);
   const inserted2 = await User.insertMany(users);
 
-  console.log(`Created ${inserted.length} fleets.`);
+  // console.log(`Created ${inserted.length} fleets.`);
   console.log(`Created ${inserted2.length} users.`);
 }
 

@@ -2,7 +2,7 @@
   {
     "id": 1,
     "email": "mail1@mail.com",
-    "password": "password1",
+    "password": "$2b$10$opWl3LqV.drTeSKYvxBcPu8FqSlCGCReaCDTVHwNOhDxgvHPWHW0.",
     "name": "name1",
     "avatar": "https://thispersondoesnotexist.com/",
     "following": [
@@ -17,7 +17,7 @@
   {
     "id": 2,
     "email": "mail2@mail.com",
-    "password": "password2",
+    "password": "$2b$10$opWl3LqV.drTeSKYvxBcPu8FqSlCGCReaCDTVHwNOhDxgvHPWHW0.",
     "name": "name2",
     "avatar": "https://thispersondoesnotexist.com/",
     "following": [
@@ -32,7 +32,7 @@
   {
     "id": 3,
     "email": "mail3@mail.com",
-    "password": "password3",
+    "password": "$2b$10$opWl3LqV.drTeSKYvxBcPu8FqSlCGCReaCDTVHwNOhDxgvHPWHW0.",
     "name": "name3",
     "avatar": "https://thispersondoesnotexist.com/",
     "following": [
