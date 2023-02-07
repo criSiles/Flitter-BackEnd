@@ -2,6 +2,11 @@ var express = require('express');
 var router = express.Router();
 const userController = require('../controllers/userController');
 
+/* GET logout */
+router.get('/logout', function(req, res, next) {
+  userController.userLogout(req, res, next);
+});
+
 /* GET users listing. */
 router.get('/list', function(req, res, next) {
   userController.userList(req, res, next);
@@ -31,7 +36,5 @@ router.delete('/:id', function(req, res, next) {
 router.post('/login', function(req, res, next) {
   userController.userLogin(req, res, next);
 });
-
-
 
 module.exports = router;

@@ -103,6 +103,14 @@ exports.userDeleteById = async (req, res) => {
       }
 }
 
+// GET logout user
+exports.userLogout = async (req, res) => {
+    console.log(req.session);
+    req.session.destroy();
+    res.status(200).json({ message: "Logged out!" });
+    // res.redirect('/');
+}
+
 // POST login user with body
 exports.userLogin = async (req, res) => {
     // Get the data from the request
@@ -110,18 +118,23 @@ exports.userLogin = async (req, res) => {
     // Check if the user exists
     User.findOne({ email: email }, async (err, user) => {
     
-    if (!user) {
-        return res.status(404).json({ error: "User not found" });
-    }
-    // Check if the password is correct
-    console.log(user);
-    const validPassword = await bcrypt.compare(password, user.password);
-    if (!validPassword) {
-        return res.status(401).json({ error: "Invalid password" });
-    }
-    // Create and assign a token
-    //const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET);
-    //res.header('auth-token', token).json({ token });
-    return res.status(200).json({ message: "Logged in!" });
-});
+        if (!user) {
+            return res.status(404).json({ error: "User not found" });
+        }   
+        // Check if the password is correct
+        console.log(user);
+        const validPassword = await bcrypt.compare(password, user.password);
+        if (!validPassword) {
+            return res.status(401).json({ error: "Invalid password" });
+        }
+        // Create and assign a token
+        //const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET);
+        //res.header('auth-token', token).json({ token });
+    
+        // Create a session    
+        req.session.user = req.body.email;
+        req.session.save();
+        console.log(req.session)
+        return res.status(200).json({ message: "Logged in!" });
+    });
 };

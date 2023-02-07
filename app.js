@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const session = require('express-session');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -17,6 +18,15 @@ app.locals.title = "Flitter";
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+const expireTime = 1000 * 60 * 60 * 2;
+
+app.use(session({
+	secret: 'secret',
+	resave: false,
+	saveUninitialized: true,
+  cookie: { secure: false, maxAge: expireTime }
+}));
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -54,7 +64,6 @@ app.use('/users', usersRouter);
 app.use('/apidoc', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use('/api/fleets', fleetsRouter);
 app.use(express.static("public"))
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
