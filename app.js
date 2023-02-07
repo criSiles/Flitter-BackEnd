@@ -7,6 +7,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var fleetsRouter = require("./routes/api/fleets");
+var kudosRouter = require("./routes/api/kudos");
 
 require('./lib/connectMongoose');
 
@@ -53,6 +54,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/apidoc', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use('/api/fleets', fleetsRouter);
+app.use('/api/kudos', kudosRouter);
 app.use(express.static("public"))
 
 
