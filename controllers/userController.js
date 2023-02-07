@@ -98,6 +98,14 @@ exports.userDeleteById = async (req, res) => {
     if (!user) {
       return res.status(404).json({ error: "User not found" });
     }
+    // Check if the password is correct
+    const validPassword = await bcrypt.compare(
+        req.body.password,
+        user.password
+    );
+    if (!validPassword) {
+        return res.status(401).json({ error: "Password is not valid" });
+    }    
 
     // Delete user
     await user.remove();
