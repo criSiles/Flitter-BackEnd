@@ -67,13 +67,20 @@ app.use(express.static("public"))
 
 // test route session
 app.get('/test', function(req, res) { 
-  console.log(req.session);
-  if (req.session.user) {
-    res.send('You are logged in as ' + req.session.user);
-  } else {
-    res.send('You are not logged in');
+  const token = req.headers.authorization;
+  console.log(token);
+  if (!token) {
+    return res.status(401).json({ error: 'token is required' });
   }
-})
+  try {
+    const payload = jwt.verify(token, 'TOKEN_SECRET');
+    req.user = payload;
+    console.log(req.user);
+    res.json({ message: 'ok' });
+  } catch (err) {
+    return res.status(401).json({ error: 'token is not valid' });
+  }
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
