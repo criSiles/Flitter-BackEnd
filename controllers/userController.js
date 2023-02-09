@@ -1,6 +1,7 @@
 const User = require('../models/user');
 const bcrypt = require('bcrypt');
 const path = require('path');
+const jwt = require('jsonwebtoken');
 
 // POST create new user (Restriction: you cannot create a user with an existing email address.)
 exports.userCreate = async (req, res) => {
@@ -128,13 +129,14 @@ exports.userLogin = async (req, res) => {
             return res.status(401).json({ error: "Invalid password" });
         }
         // Create and assign a token
-        //const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET);
+        const token = jwt.sign({ _id: user._id }, 'TOKEN_SECRET', { expiresIn: '1h' });
         //res.header('auth-token', token).json({ token });
-    
+        res.status(200).json({ message: "Logged in!", authToken: token });
         // Create a session    
         req.session.user = req.body.email;
         req.session.save();
-        console.log(req.session)
-        return res.status(200).json({ message: "Logged in!" });
+        console.log(req.session);
+        console.log(token);
+        return res;
     });
 };
