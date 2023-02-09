@@ -1,9 +1,10 @@
 var express = require('express');
 var router = express.Router();
 const userController = require('../controllers/userController');
+const authChecker = require('../utils/authChecker');
 
 /* GET logout */
-router.get('/logout', function(req, res, next) {
+router.get('/logout', authChecker, function(req, res, next) {
   userController.userLogout(req, res, next);
 });
 
@@ -23,12 +24,12 @@ router.post('/', function(req, res, next) {
 });
 
 /* PUT update user by id. */
-router.put('/:id', function(req, res, next) {
+router.put('/:id', authChecker, function(req, res, next) {
   userController.userUpdateById(req, res, next);
 });
 
 /* DELETE delete user by id. */
-router.delete('/:id', function(req, res, next) {
+router.delete('/:id', authChecker, function(req, res, next) {
   userController.userDeleteById(req, res, next);
 });
 
