@@ -76,11 +76,6 @@ app.use("/apidoc", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use("/api/fleets", fleetsRouter);
 app.use(express.static("public"));
 
-// test route session
-app.get("/test", authChecker, function (req, res) {
-  return res.status(200).json({ message: "token is valid" });
-});
-
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
