@@ -35,7 +35,7 @@ router.get("/", async (req, res, next) => {
     }
 
     if (text) {
-      filter.text = new RegExp("^" + req.query.text, "i");
+      filter.text = new RegExp(req.query.text, "i");
     }
 
     if (kudos) {
