@@ -65,6 +65,16 @@ app.use('/apidoc', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use('/api/fleets', fleetsRouter);
 app.use(express.static("public"))
 
+// test route session
+app.get('/test', function(req, res) { 
+  console.log(req.session);
+  if (req.session.user) {
+    res.send('You are logged in as ' + req.session.user);
+  } else {
+    res.send('You are not logged in');
+  }
+})
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
