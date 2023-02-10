@@ -10,6 +10,7 @@ const cors = require("cors");
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var fleetsRouter = require("./routes/api/fleets");
+var kudosRouter = require("./routes/api/kudos");
 
 require("./lib/connectMongoose");
 
@@ -70,11 +71,12 @@ app.use(function (req, res, next) {
 });
 
 // Configurar rutas
-app.use("/", indexRouter);
-app.use("/users", usersRouter);
-app.use("/apidoc", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-app.use("/api/fleets", fleetsRouter);
-app.use(express.static("public"));
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+app.use('/apidoc', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use('/api/fleets', fleetsRouter);
+app.use('/api/kudos', kudosRouter);
+app.use(express.static("public"))
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
