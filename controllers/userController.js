@@ -17,10 +17,7 @@ exports.userCreate = async (req, res) => {
         .status(400)
         .json({ error: "The e-mail address is already registered" });
     }
-    // Encrypt the password
-    const salt = await bcrypt.genSalt(10);
-    const hashPassword = await bcrypt.hash(password, salt);
-    user.password = hashPassword;
+    // TODO: Make password encrypted
     // Save the user
     await user.save();
     return res.status(201).json({ message: "User created!" });
@@ -127,8 +124,9 @@ exports.userLogin = async (req, res) => {
     }
     // Check if the password is correct
     console.log(user);
-    const validPassword = await bcrypt.compare(password, user.password);
-    if (!validPassword) {
+    console.log("PASSWORD: %s USER_PASS: %s", password, user.password);
+    // TODO: Use crypt data instead of plain.
+    if (password !== user.password) {
       return res.status(401).json({ error: "Invalid password" });
     }
     // Create and assign a token
