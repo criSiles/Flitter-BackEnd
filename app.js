@@ -7,10 +7,10 @@ const session = require("express-session");
 const authChecker = require("./utils/authChecker");
 const cors = require("cors");
 
-var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
-var fleetsRouter = require("./routes/api/fleets");
-var kudosRouter = require("./routes/api/kudos");
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
+var fleetsRouter = require('./routes/fleets');
+var kudosRouter = require('./routes/kudos');
 
 require("./lib/connectMongoose");
 

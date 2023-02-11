@@ -1,7 +1,7 @@
 "use strict";
 
 const express = require("express");
-const Fleet = require("../../models/Fleet");
+const Fleet = require("../models/Fleet");
 
 const router = express.Router();
 

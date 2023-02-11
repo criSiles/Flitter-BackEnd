@@ -1,7 +1,7 @@
 "use strict";
 
 const express = require("express");
-const Fleet = require("../../models/Fleet");
+const Fleet = require("../models/Fleet");
 
 const router = express.Router();
 
@@ -26,8 +26,8 @@ router.get("/", async (req, res, next) => {
 
     const filter = {};
 
-    if (id) {
-      filter.id = id;
+    if (_id) {
+      filter._id = _id;
     }
 
     if (userName) {
@@ -40,10 +40,6 @@ router.get("/", async (req, res, next) => {
 
     if (kudos) {
       filter.kudos = kudos;
-    }
-
-    if (img) {
-      filter.img = img;
     }
 
     if (createdAt) {
