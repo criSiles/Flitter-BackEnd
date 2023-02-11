@@ -11,7 +11,6 @@ var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var fleetsRouter = require('./routes/fleets');
 var kudosRouter = require('./routes/kudos');
-var kudosRouter = require("./routes/api/kudos");
 
 require("./lib/connectMongoose");
 
