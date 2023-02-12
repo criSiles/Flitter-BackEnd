@@ -9,11 +9,10 @@ const router = express.Router();
 router.get("/", async (req, res, next) => {
   try {
     // filter
-    const id = req.query.id;
+    const _id = req.query._id;
     const userName = req.query.userName
     const text = req.query.text;
     const kudos = req.query.kudos;
-    const img = req.query.img;
     const createdAt = req.query.createdAt;
 
     // pagination
