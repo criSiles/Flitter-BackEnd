@@ -91,20 +91,31 @@ exports.userUpdateById = async (req, res) => {
 };
 
 // DELETE user by id
-exports.userDeleteById = async (req, res) => {
-  try {
+exports.userDeleteById = async (req, res) => {    
+  try {            
     // Check if the user exists
     const user = await User.findById(req.params.id);
     if (!user) {
       return res.status(404).json({ error: "User not found" });
     }
 
-    // Delete user
-    await user.remove();
-
-    return res.json({ message: "User successfully deleted" });
+    // Check if the password is correct
+    if (!req.body.password) {        
+        return res.status(401).json({ error: "Password is required" });    
+    } else {      
+      const validPassword = await bcrypt.compare(
+        req.body.password,
+        user.password
+      );
+      if (!validPassword) {
+        return res.status(401).json({ error: "Password is not valid" });
+      }
+      // Delete user
+      await user.remove();
+      return res.json({ message: "User successfully deleted" });
+    }    
   } catch (error) {
-    return res.status(500).json({ error: "Error deleting user" });
+    return res.status(500).json({ error: "Error deleting user" + error });
   }
 };
 

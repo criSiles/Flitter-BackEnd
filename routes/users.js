@@ -29,7 +29,7 @@ router.put('/:id', authChecker, function(req, res, next) {
 });
 
 /* DELETE delete user by id. */
-router.delete('/:id', authChecker, function(req, res, next) {
+router.delete('/:id', authChecker, function (req, res, next) {
   userController.userDeleteById(req, res, next);
 });
 
