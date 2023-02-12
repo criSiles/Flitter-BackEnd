@@ -17,6 +17,13 @@ exports.userCreate = async (req, res) => {
         .status(400)
         .json({ error: "The e-mail address is already registered" });
     }
+    // Check if the user name is already registered
+    const userNameExists = await User.findOne({ name });
+    if (userNameExists) {
+      return res
+        .status(400)
+        .json({ error: "The user name is already registered" });
+    }
     // Encrypt the password
     const salt = await bcrypt.genSalt(10);
     const hashPassword = await bcrypt.hash(password, salt);
