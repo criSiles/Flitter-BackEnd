@@ -2,6 +2,7 @@ const User = require("../models/user");
 const bcrypt = require("bcrypt");
 const path = require("path");
 const jwt = require("jsonwebtoken");
+const nodemailer = require('nodemailer');
 
 // POST create new user (Restriction: you cannot create a user with an existing email address.)
 exports.userCreate = async (req, res) => {
@@ -157,3 +158,86 @@ exports.userLogin = async (req, res) => {
     return res.status(200).json({ message: "Logged in!", authToken: token });
   });
 };
+
+// POST recover password
+exports.userRecoverPassword = async (req, res) => {
+  // Get the data from the request
+  const { email } = req.body;
+  // Check if the user exists
+  User.findOne({ email: email }, async (err, user) => {
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+    // Generate a temporary password
+    let tempPass = Math.random().toString(36).slice(-8);
+    // Create and assign a token
+    let token = jwt.sign({_id: user._id, pass: tempPass}, 'RECOVER_SECRET', {
+      expiresIn: '1h'
+    });    
+    // Send email with the token    
+    const transporter = nodemailer.createTransport({
+      host: 'smtp.ethereal.email',
+      port: 587,
+      auth: {
+          user: 'caleigh.jacobson43@ethereal.email',
+          pass: 'THVctnVu6WrMhuxkGE'
+      }
+    });    
+    // setup url like a link
+    url = "<a href='http://localhost:3000/users/recoverPass/" + token + "'>push</a>";
+    // make a html template    
+    let html = "<!DOCTYPE html><html><head><title></title></head><body><main><h1>Password recovery email</h1><p>Hi from your flitter project, this is your token:" + url + " to recover your account</p><p>Your new temporary pass is: " + tempPass + "</p></main></body></html>";    
+    // test link
+    console.log(url);
+    // send mail with defined transport object
+    let mailOptions = {
+      from: 'caleigh.jacobson43@ethereal.email',
+      to: user.email,
+      subject: 'Flitter Project',
+      html: html,
+      text: html      
+    };
+    transporter.sendMail(mailOptions, function(err, data) {
+      if (err) {
+        console.log('Error: ' + err);
+      } else {
+        console.log('Email sent successfully');
+      }
+    });
+    return res.status(200).json({ message: "Email sent!" })
+  });
+};
+
+// GET generate new password
+exports.userNewPassword = async (req, res) => {
+  // Check the token from url params
+  const token = req.params.token;
+  if (!token) {
+    return res.status(401).json({ error: "Token is required" });
+  }
+  // Check if the token is valid
+  const validToken = jwt.verify(token, "RECOVER_SECRET");
+  if (!validToken) {
+    return res.status(401).json({ error: "Invalid token" });
+  }
+  // Check if the user exists
+  User.findOne({ _id: validToken._id }, async (err, user) => {
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+    // Check if the password is correct
+    if (!validToken.pass) {
+      return res.status(401).json({ error: "Password is required" });
+    } else {
+      // Hash the password
+      const salt = await bcrypt.genSalt(10);
+      const hashedPassword = await bcrypt.hash(validToken.pass, salt);
+      // Update the user
+      Object.assign(user, { password: hashedPassword });
+      await user.save();
+      return res.json({ message: "Password updated!" });
+    }
+  });
+};
+
+

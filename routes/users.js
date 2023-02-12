@@ -38,4 +38,15 @@ router.post('/login', function(req, res, next) {
   userController.userLogin(req, res, next);
 });
 
+/* POST recover password with body. */
+router.post('/recover', function(req, res, next) {
+  console.log('recover password');
+  userController.userRecoverPassword(req, res, next);
+});
+
+/* GET recover password with token. */
+router.get('/recoverPass/:token', function(req, res, next) {  
+  userController.userNewPassword(req, res, next);
+});
+
 module.exports = router;
