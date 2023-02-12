@@ -11,6 +11,7 @@ var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var fleetsRouter = require('./routes/fleets');
 var kudosRouter = require('./routes/kudos');
+var followsRouter = require('./routes/follows');
 
 require("./lib/connectMongoose");
 
@@ -76,6 +77,7 @@ app.use('/users', usersRouter);
 app.use('/apidoc', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use('/api/fleets', fleetsRouter);
 app.use('/api/kudos', kudosRouter);
+app.use('/api/follows', followsRouter);
 app.use(express.static('public'))
 
 // catch 404 and forward to error handler

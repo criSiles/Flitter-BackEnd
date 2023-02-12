@@ -7,7 +7,10 @@ const userSchema = mongoose.Schema({
   password: String,
   name: String,
   avatar: String,
-  following: [{ id: Number }],
+  following: [{
+    type: mongoose.Schema.Types.ObjectId, 
+    ref: 'User'
+  }],
 });
 
 const User = mongoose.model("User", userSchema);

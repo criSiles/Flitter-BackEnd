@@ -1,47 +1,38 @@
 [
   {
+    "_id":"63e8c794ac6688d05d7294d3",
     "id": 1,
     "email": "mail1@mail.com",
     "password": "$2b$10$opWl3LqV.drTeSKYvxBcPu8FqSlCGCReaCDTVHwNOhDxgvHPWHW0.",
     "name": "name1",
     "avatar": "https://thispersondoesnotexist.com/",
     "following": [
-      {
-        "id": 2
-      },
-      {
-        "id": 3
-      }
+      "63e8c7d3d2abc0dc476a33a4",
+      "63e8c7d9c496b3e2817f5cf2"
     ]
   },
   {
+    "_id":"63e8c7d3d2abc0dc476a33a4",
     "id": 2,
     "email": "mail2@mail.com",
     "password": "$2b$10$opWl3LqV.drTeSKYvxBcPu8FqSlCGCReaCDTVHwNOhDxgvHPWHW0.",
     "name": "name2",
     "avatar": "https://thispersondoesnotexist.com/",
     "following": [
-      {
-        "id": 1
-      },
-      {
-        "id": 3
-      }
+      "63e8c7d9c496b3e2817f5cf2",
+      "63e8c794ac6688d05d7294d3"
     ]
   },
   {
+    "_id":"63e8c7d9c496b3e2817f5cf2",
     "id": 3,
     "email": "mail3@mail.com",
     "password": "$2b$10$opWl3LqV.drTeSKYvxBcPu8FqSlCGCReaCDTVHwNOhDxgvHPWHW0.",
     "name": "name3",
     "avatar": "https://thispersondoesnotexist.com/",
     "following": [
-      {
-        "id": 1
-      },
-      {
-        "id": 2
-      }
+      "63e8c7d3d2abc0dc476a33a4",
+      "63e8c794ac6688d05d7294d3"
     ]
   }
 ]
