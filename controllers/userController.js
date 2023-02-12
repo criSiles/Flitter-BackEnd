@@ -179,10 +179,10 @@ exports.userRecoverPassword = async (req, res) => {
       host: 'smtp.ethereal.email',
       port: 587,
       auth: {
-          user: 'caleigh.jacobson43@ethereal.email',
-          pass: 'THVctnVu6WrMhuxkGE'
+          user: 'rosalee.williamson29@ethereal.email',
+          pass: '66vjrAfCFy7WgcnQfY'
       }
-    });    
+    }); 
     // setup url like a link
     url = "<a href='http://localhost:3000/users/recoverPass/" + token + "'>push</a>";
     // make a html template    
