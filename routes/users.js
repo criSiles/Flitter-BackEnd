@@ -30,7 +30,6 @@ router.put('/:id', authChecker, function(req, res, next) {
 
 /* DELETE delete user by id. */
 router.delete('/:id', authChecker, function (req, res, next) {
-  console.log("Llamando a la ruta");
   userController.userDeleteById(req, res, next);
 });
 
