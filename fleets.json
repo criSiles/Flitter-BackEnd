@@ -1,20 +1,20 @@
 [
   {
-    "userName": "RoRo",
+    "userName": "name1",
     "text": "This is a dummy text",
     "kudos": [],
     "img": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
     "createdAt": 1675595886
   },
   {
-    "userName": "RoRo",
+    "userName": "name1",
     "text": "This is a dummy text",
     "kudos": [],
     "img": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
     "createdAt": 1675595887
   },
   {
-    "userName": "RoRo",
+    "userName": "name1",
     "text": "This is a dummy text",
     "kudos": [],
     "img": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
@@ -22,7 +22,7 @@
   },
   {
 
-    "userName":"Gigi",
+    "userName":"name2",
     "text": "This is a dummy text",
     "kudos": [],
     "img": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
@@ -30,7 +30,7 @@
   },
   {
 
-    "userName": "Gigi",
+    "userName": "name2",
     "text": "This is a dummy text",
     "kudos": [],
     "img": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
@@ -38,28 +38,28 @@
   },
   {
 
-    "userName": "Gigi",
+    "userName": "name2",
     "text": "This is a dummy text",
     "kudos": [],
     "img": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
     "createdAt": 1675595891
   },
   {
-    "userName": "Lu",
+    "userName": "name3",
     "text": "This is a dummy text",
     "kudos": [],
     "img": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
     "createdAt": 1675595892
   },
   {
-    "userName": "Lu",
+    "userName": "name3",
     "text": "This is a dummy text",
     "kudos": [],
     "img": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
     "createdAt": 1675595893
   },
   {
-    "userName": "Lu",
+    "userName": "name3",
     "text": "This is a dummy text",
     "kudos": [],
     "img": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
