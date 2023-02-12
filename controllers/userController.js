@@ -66,6 +66,16 @@ exports.userGetByEmail = function (req, res, next) {
   });
 };
 
+// GET user by name
+exports.userGetByName = function (req, res, next) {
+  User.findOne({ name: req.query.name }, (err, user) => {
+    if (err) {
+      return next(err);
+    }
+    res.status(200).json({ user });
+  });
+};
+
 // PUT update user by id
 exports.userUpdateById = async (req, res) => {
   try {
