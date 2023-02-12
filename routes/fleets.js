@@ -15,10 +15,10 @@ router.get("/private", authChecker, async (req, res, next) => {
     const fields = req.query.fields;
     const sort = req.query.sort;
     
-    const userName = (await User.findById(req.user._id)).name;
-    const filter = {
-      userName
-    };
+    const user = await User.findById(req.user._id);
+    const followedUsers = await User.find({_id: user.following});
+    const followedUserNames = followedUsers.map((x)=>x.name)
+    const filter = {userName: followedUserNames}
 
     const fleets = await Fleet.list(filter, skip, limit, fields, sort);
     res.json(fleets);
