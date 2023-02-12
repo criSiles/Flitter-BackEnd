@@ -1,9 +1,32 @@
 "use strict";
 
 const express = require("express");
+const mongoose = require('mongoose');
+const authChecker = require("../utils/authChecker");
 const Fleet = require("../models/Fleet");
+const User = mongoose.model('User');
 
 const router = express.Router();
+
+router.get("/private", authChecker, async (req, res, next) => {
+  try {
+    const skip = req.query.skip;
+    const limit = req.query.limit;
+    const fields = req.query.fields;
+    const sort = req.query.sort;
+    
+    const userName = (await User.findById(req.user._id)).name;
+    const filter = {
+      userName
+    };
+
+    const fleets = await Fleet.list(filter, skip, limit, fields, sort);
+    res.json(fleets);
+  } catch (err) {
+    next(err);
+    return;
+  }
+});
 
 // GET /api/fleets
 router.get("/", async (req, res, next) => {
@@ -53,25 +76,32 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.post("/", async (req, res, next) => {
+router.post("/", authChecker, async (req, res, next) => {
   const fleetPost = new Fleet({
-    userName: req.body.userName,
+    userName: (await User.findById(req.user._id)).name,
     text: req.body.text,
     img: req.body.img,
+    createdAt: Date.now()
   });
 
   await Fleet.create(fleetPost);
   res.send(fleetPost);
 });
 
-router.delete("/:id", async (req, res, next) => {
-  await Fleet.deleteOne({ _id: req.params.id })
-    .then(() => {
-      res.send();
-    })
-    .catch(() => {
-      res.status(404).send();
-    });
+router.delete("/:id", authChecker, async (req, res, next) => {
+  const userName = (await User.findById(req.user._id)).name;
+  const fleetToDelete = await Fleet.findById(req.params.id);
+  if(userName !== fleetToDelete.userName){
+    res.status(403).send();
+  }else{
+    Fleet.deleteOne({ _id: req.params.id })
+      .then(() => {
+        res.send();
+      })
+      .catch(() => {
+        res.status(404).send();
+      });
+  }
 });
 
 module.exports = router;
