@@ -77,6 +77,17 @@ exports.userGetByName = function (req, res, next) {
   });
 };
 
+// GET current user
+exports.userGetCurrent = function (req, res, next) {
+  console.log(req.user._id)
+  User.findById(req.user._id, (err, user) => {
+    if (err) {
+      return next(err);
+    }
+    res.status(200).json({ user });
+  });
+};
+
 // PUT update user by id
 exports.userUpdateById = async (req, res) => {
   try {
@@ -112,7 +123,7 @@ exports.userUpdateById = async (req, res) => {
 exports.userDeleteById = async (req, res) => {    
   try {            
     // Check if the user exists
-    const user = await User.findById(req.params.id);
+    const user = await User.findById(req.params.id).select('+password');
     if (!user) {
       return res.status(404).json({ error: "User not found" });
     }
@@ -166,7 +177,7 @@ exports.userLogin = async (req, res) => {
     });
     //res.header('auth-token', token).json({ token });
     return res.status(200).json({ message: "Logged in!", authToken: token });
-  });
+  }).select('+password');
 };
 
 // POST recover password
