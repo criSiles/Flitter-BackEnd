@@ -100,25 +100,5 @@ npm run dev
 }
 ```
 
-**To see a specific user, use endpoint** ```/users/:{id}```
-
-#### Request:
-``` [GET] localhost:3000/users/63e8f1ef6b728ad1f7d6fb08 ```
-
-#### Response: 
-```
-{
-    "user": {
-        "_id": "63e8f1ef6b728ad1f7d6fb08",
-        "id": 3,
-        "email": "mail3@mail.com",
-        "password": "$2b$10$opWl3LqV.drTeSKYvxBcPu8FqSlCGCReaCDTVHwNOhDxgvHPWHW0.",
-        "name": "name3",
-        "avatar": "https://thispersondoesnotexist.com/",
-        "__v": 0
-    }
-}
-```
-
 
         
