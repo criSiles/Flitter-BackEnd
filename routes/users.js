@@ -13,6 +13,11 @@ router.get('/list', function(req, res, next) {
   userController.userList(req, res, next);
 });
 
+/* GET current user */
+router.get('/current', authChecker, function(req, res, next) {
+  userController.userGetCurrent(req, res, next);
+});
+
 /* GET user by id. */
 router.get('/:id', function(req, res, next) {
   userController.userGetById(req, res, next);
