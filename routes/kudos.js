@@ -2,12 +2,13 @@
 
 const express = require("express");
 const Fleet = require("../models/Fleet");
+const authChecker = require('../utils/authChecker');
 
 const router = express.Router();
 
-router.post("/", async (req, res, next) => {
+router.post("/", authChecker, async (req, res, next) => {
   const fleetId = req.body.fleetId;
-  const userId = req.body.userId;
+  const userId = req.user._id;
   Fleet.updateOne({_id: fleetId}, {$addToSet: {kudos: userId}})
     .then((result)=>{
       if(result.matchedCount !== 1){
@@ -23,9 +24,9 @@ router.post("/", async (req, res, next) => {
     })
 });
 
-router.delete("/", async (req, res, next) => {
+router.delete("/", authChecker, async (req, res, next) => {
   const fleetId = req.body.fleetId;
-  const userId = req.body.userId;
+  const userId = req.user._id;
   Fleet.updateOne({_id: fleetId}, {$pull: {kudos: userId}})
     .then((result)=>{
       if(result.matchedCount !== 1){
