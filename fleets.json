@@ -8,7 +8,7 @@
   },
   {
     "userName": "name1",
-    "text": "This is a dummy text",
+    "text": "I need a coffee",
     "kudos": [],
     "img": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
     "createdAt": 1676404121
@@ -22,7 +22,7 @@
   },
   {
     "userName": "name1",
-    "text": "This is a dummy text",
+    "text": "Let's go to the mall!",
     "kudos": [],
     "img": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
     "createdAt": 1675598121
@@ -50,7 +50,7 @@
   },
   {
     "userName": "name2",
-    "text": "This is a dummy text",
+    "text": "I need a coffee",
     "kudos": [],
     "img": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
     "createdAt": 1654668721
@@ -72,7 +72,7 @@
   },
   {
     "userName":"name2",
-    "text": "This is a dummy text",
+    "text": "Let's go to the mall!",
     "kudos": [],
     "img": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
     "createdAt": 1675923121
@@ -86,7 +86,7 @@
   },
   {
     "userName": "name3",
-    "text": "This is a dummy text",
+    "text": "I need a coffee",
     "kudos": [],
     "img": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
     "createdAt": 1654924321
@@ -107,7 +107,7 @@
   },
   {
     "userName": "name3",
-    "text": "This is a dummy text",
+    "text": "Let's go to the mall!",
     "kudos": [],
     "img": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
     "createdAt": 1675313121
