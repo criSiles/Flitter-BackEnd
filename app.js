@@ -2,9 +2,14 @@ var createError = require("http-errors");
 var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
+// morgan is a debugging your backend application
 var logger = require("morgan");
+// express-session is a middleware to manage sessions for users and login
 const session = require("express-session");
+// authChecker is a middleware to check if the user is logged in
 const authChecker = require("./utils/authChecker");
+// cors is a middleware to allow cross-origin requests
+// cross-origin requests are requests from a different domain
 const cors = require("cors");
 
 var indexRouter = require("./routes/index");
@@ -21,6 +26,8 @@ app.locals.title = "Flitter";
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
+// EJS is a popular view engine for Express.js that allows you to embed
+// JavaScript code in HTML templates to generate dynamic content.
 app.set("view engine", "ejs");
 
 const expireTime = 1000 * 60 * 60 * 2;
@@ -40,7 +47,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-// Configurar swagger
+// Setup swagger
 const swaggerUi = require("swagger-ui-express");
 const swaggerDocument = require("./api-flitter/apidoc.json");
 
@@ -71,13 +78,14 @@ app.use(function (req, res, next) {
   next();
 });
 
-// Configurar rutas
+// Setup routes
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/apidoc', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use('/api/fleets', fleetsRouter);
 app.use('/api/kudos', kudosRouter);
 app.use('/api/follows', followsRouter);
+// TODO:mmc:17-09-23: Review if the following line is needed
 app.use(express.static('public'))
 
 // catch 404 and forward to error handler
